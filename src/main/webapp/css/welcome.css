@@ -1,0 +1,48 @@
+/* welcome.css - специфичные стили для welcome страницы */
+.welcome h1 {
+    color: #f8bb22;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.welcome p {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.welcome form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.welcome label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #f8bb22;
+}
+
+.welcome input[type="text"] {
+    padding: 0.8rem;
+    border: 2px solid #4e4e6d;
+    border-radius: 5px;
+    background-color: #2a2a3e;
+    color: #e6e6e6;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.welcome input[type="text"]:focus {
+    outline: none;
+    border-color: #f8bb22;
+}
+
+@media (max-width: 600px) {
+    .welcome h1 {
+        font-size: 1.5rem;
+    }
+}

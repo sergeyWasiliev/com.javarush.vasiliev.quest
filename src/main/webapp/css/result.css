@@ -1,0 +1,45 @@
+/* result.css - специфичные стили для страницы результата */
+.result .result-message {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.result .win {
+    color: #4CAF50;
+    background-color: rgba(76, 175, 80, 0.2);
+    border: 2px solid #4CAF50;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+}
+
+.result .lose {
+    color: #f44336;
+    background-color: rgba(244, 67, 54, 0.2);
+    border: 2px solid #f44336;
+    box-shadow: 0 0 20px rgba(244, 67, 54, 0.3);
+}
+
+.result .restart-btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    margin: 2rem auto;
+    display: block;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.result .games-count {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .result .result-message {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+}

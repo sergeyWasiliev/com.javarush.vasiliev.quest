@@ -28,7 +28,7 @@ class GameServiceTest {
 
     @Test
     void testProcessAnswerWin() {
-        gameState.setCurrentQuestion(gameService.getFirstQuestion());
+       // gameState.setCurrentQuestion(gameService.getFirstQuestion());
         gameService.processAnswer(1L, 2L, gameState); // Go to question 3
         gameService.processAnswer(3L, 6L, gameState); // Win
 
@@ -39,7 +39,7 @@ class GameServiceTest {
 
     @Test
     void testProcessAnswerLose() {
-        gameState.setCurrentQuestion(gameService.getFirstQuestion());
+      //  gameState.setCurrentQuestion(gameService.getFirstQuestion());
         gameService.processAnswer(1L, 1L, gameState); // Go to question 2
         gameService.processAnswer(2L, 3L, gameState); // Go to question 4
         gameService.processAnswer(4L, 7L, gameState); // Lose

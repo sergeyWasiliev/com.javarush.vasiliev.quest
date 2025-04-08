@@ -13,13 +13,16 @@ import java.io.IOException;
 
 @WebServlet("/welcome")
 public class WelcomeServlet extends HttpServlet {
+    int numberDoGet=0;
+    int numberDoPost=0;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("doGet WelcomeServlet run - " + ++numberDoGet);
         req.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(req, resp);
     }
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        System.out.println("doPost WelcomeServlet run - " + ++numberDoPost);
         String playerName = req.getParameter("playerName");
         HttpSession session = req.getSession();
         GameState gameState = (GameState) session.getAttribute("gameState");

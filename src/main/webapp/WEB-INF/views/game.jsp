@@ -12,7 +12,7 @@
   <h1>${gameState.currentQuestion.text}</h1>
 
   <c:if test="${not empty gameState.currentQuestion.imageLink}">
-    <img src="${pageContext.request.contextPath}/${gameState.currentQuestion.imageLink}" alt="Изображение к вопросу">
+    <img src="${pageContext.request.contextPath}/${gameState.currentQuestion.imageLink}" alt="Изображение не найдено">
   </c:if>
 
   <form method="post">

@@ -29,19 +29,18 @@ class GameServiceTest {
 
     @Test
     void testProcessAnswerWin() {
-        gameService.processAnswer(1L, 2L, gameState); // Go to question 3
-        gameService.processAnswer(3L, 6L, gameState); // Win
+        // задаем состояние игры вопрос-3, ответ-6 - ПОБЕДА
+        gameService.processAnswer(3L, 6L, gameState);
 
-        assertNull(gameState.getCurrentQuestion());
-        assertTrue(gameState.getWin());
-        assertEquals(1, gameState.getGamesPlayed());
+        assertNull(gameState.getCurrentQuestion()); //после победы текущий вопрос null
+        assertTrue(gameState.getWin());  //состояние победа
+        assertEquals(1, gameState.getGamesPlayed());  //количество сыгранных игр 1
     }
 
     @Test
     void testProcessAnswerLose() {
-        gameService.processAnswer(1L, 1L, gameState); // Go to question 2
-        gameService.processAnswer(2L, 3L, gameState); // Go to question 4
-        gameService.processAnswer(4L, 7L, gameState); // Lose
+        // задаем состояние игры вопрос-4, ответ-7 - ПОРАЖЕНИЕ
+        gameService.processAnswer(4L, 7L, gameState);
 
         assertNull(gameState.getCurrentQuestion());
         assertFalse(gameState.getWin());
@@ -50,11 +49,13 @@ class GameServiceTest {
 
     @Test
     void testResetGame() {
+        //задаем состояние игры - ПОРАЖЕНИЕ
         gameState.setCurrentQuestion(null);
         gameState.setWin(false);
         gameState.incrementGamesPlayed();
+        //обнуляем состояние игры
         gameService.resetGame(gameState);
-
+        //проверяем что все обнулилось, счетчик игр сохранил значение
         assertNotNull(gameState.getCurrentQuestion());
         assertNull(gameState.getWin());
         assertEquals(1, gameState.getGamesPlayed());

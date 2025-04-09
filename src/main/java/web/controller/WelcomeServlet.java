@@ -13,6 +13,7 @@ import java.io.IOException;
 
 @WebServlet("/welcome")
 public class WelcomeServlet extends HttpServlet {
+    private final GameService gameService = new GameService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,14 +24,12 @@ public class WelcomeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String playerName = req.getParameter("playerName");
         HttpSession session = req.getSession();
-        GameState gameState = (GameState) session.getAttribute("gameState");
 
-        if (gameState == null) {
-            gameState = new GameState();
-            session.setAttribute("gameState", gameState);
-        }
+        GameState gameState = new GameState();
         gameState.setPlayerName(playerName);
-        new GameService().resetGame(gameState);
+        gameService.resetGame(gameState);
+
+        session.setAttribute("gameState", gameState);
         resp.sendRedirect(req.getContextPath() + "/game");
     }
 }

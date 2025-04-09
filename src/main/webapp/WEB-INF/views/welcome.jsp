@@ -16,7 +16,7 @@
     Будьте осторожны в своих выборах - от них зависит, станете ли вы легендой или
     каните в безвестности...</p>
 
-  <form method="post">
+  <form method="post" action="/welcome">
     <label for="playerName">Введите ваше имя:</label>
     <input type="text" id="playerName" name="playerName" required
            placeholder="Имя героя" autocomplete="off" autofocus>
